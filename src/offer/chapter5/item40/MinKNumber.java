@@ -5,8 +5,6 @@
  */
 package offer.chapter5.item40;
 
-import java.util.Arrays;
-
 /**
  * P209
  * 最小的K个数
@@ -20,9 +18,9 @@ public class MinKNumber {
         kNumber.minKNumber(new int[]{7, 1, 3, 6, 3, 0}, 3);
     }
 
-    private void minKNumber(int[] nums, int k) {
-        if (null == nums || nums.length == 0) {
-            return;
+    private int[] minKNumber(int[] nums, int k) {
+        if (null == nums || nums.length == 0 || k == 0) {
+            return new int[0];
         }
         if (k > nums.length) {
             k = nums.length;
@@ -52,7 +50,7 @@ public class MinKNumber {
             swap(res, 0, --k);
         }
 
-        System.out.println(Arrays.toString(res));
+        return res;
     }
 
     private void heapInsert(int[] nums, int pos) {
@@ -77,7 +75,7 @@ public class MinKNumber {
         }
     }
 
-    static void swap(int[] nums, int a, int b) {
+    private void swap(int[] nums, int a, int b) {
         if (nums == null || nums.length < 2 || a == b || nums[a] == nums[b]) {
             return;
         }
