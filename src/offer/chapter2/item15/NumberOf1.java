@@ -29,8 +29,8 @@ public class NumberOf1 {
      */
     private int numberOf12(int n) {
         int flag = 1, count = 0;
-        while (flag > 0) {
-            if ((n & flag) > 0) {
+        while (flag != 0) {
+            if ((n & flag) != 0) {
                 count++;
             }
             flag = flag << 1;
@@ -46,9 +46,9 @@ public class NumberOf1 {
      */
     private int numberOf13(int n) {
         int count = 0;
-        while (Math.abs(n) > 0) {
-            n = (n & (n - 1));
+        while (n != 0) {
             count++;
+            n = (n & (n - 1));
         }
         return count;
     }
