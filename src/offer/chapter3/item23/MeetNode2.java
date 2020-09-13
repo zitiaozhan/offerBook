@@ -5,14 +5,14 @@
  */
 package offer.chapter3.item23;
 
-
 /**
- * 23:链表中环的入口节点
+ * P139
+ * 链表中环的入口节点
  *
  * @author xingye
- * @created 2020/7/27
+ * @created 2020/9/13
  */
-public class MeetNode {
+public class MeetNode2 {
     public static void main(String... args) {
         // O(N)
         ListNode node1 = new ListNode(1);
@@ -26,39 +26,41 @@ public class MeetNode {
         node4.next = node5;
         node5.next = node2;
 
-        MeetNode meetNode = new MeetNode();
-        System.out.println(meetNode.meetNode(node1));
+        MeetNode2 meetNode = new MeetNode2();
+        System.out.println(meetNode.getRingEntryNode(node1));
     }
 
-    private ListNode meetNode(ListNode root) {
-        if (null == root) {
+    private ListNode getRingEntryNode(ListNode head) {
+        if (null == head) {
             return null;
         }
 
-        int len = getLength(root);
-        if (-1 == len) {
+        int ringLength = getRingLength(head);
+        if (ringLength == -1) {
             return null;
         }
-
-        ListNode quick = root;
-        while (len > 0) {
-            quick = quick.next;
-            len--;
+        ListNode front = head, behind = head;
+        // 1.前指针先走 ringLength 次
+        while (ringLength > 0) {
+            front = front.next;
+            ringLength--;
         }
 
-        ListNode slow = root;
-        while (slow != quick) {
-            slow = slow.next;
-            quick = quick.next;
+        // 2.后指针和前指针一块走
+        while (front != behind) {
+            front = front.next;
+            behind = behind.next;
         }
-        return slow;
+        // 3.找到入环节点
+        return front;
     }
 
-    // 得到环的长度
-    private int getLength(ListNode root) {
-        ListNode quick = root;
-        ListNode slow = root;
-
+    /**
+     * 得到环的长度
+     */
+    private int getRingLength(ListNode head) {
+        ListNode quick = head, slow = head;
+        // 快的一次走两步，慢的一步
         while (quick != null && quick.next != null) {
             quick = quick.next.next;
             slow = slow.next;
@@ -70,7 +72,7 @@ public class MeetNode {
         if (quick != slow) {
             return -1;
         }
-
+        // 统计长度
         int len = 1;
         slow = slow.next;
         while (slow != quick) {
@@ -81,11 +83,11 @@ public class MeetNode {
     }
 
     private static class ListNode {
-        int val;
-        ListNode next;
+        private int val;
+        private ListNode next;
 
-        ListNode(int x) {
-            val = x;
+        public ListNode(int val) {
+            this.val = val;
         }
 
         @Override
