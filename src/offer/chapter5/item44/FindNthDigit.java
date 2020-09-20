@@ -23,20 +23,20 @@ public class FindNthDigit {
         }
 
         n++;
-        int pos = 1;
-        while (n > pos * countOfNPosition(pos)) {
-            n -= pos * countOfNPosition(pos);
-            pos++;
+        int nth = 1;
+        while (n > nth * countOfNPosition(nth)) {
+            n -= nth * countOfNPosition(nth);
+            nth++;
         }
 
         // 该数为pos位数的数字中的一个数
-        long num1 = n / pos;
-        int num2 = (int) n % pos;
-        long startNum = getStartNum(pos);
-        if (num2 == 0) {
-            return getRes(startNum + num1 - 1, pos);
+        long number = n / nth;
+        int remainder = (int) n % nth;
+        long startNum = getStartNum(nth);
+        if (remainder == 0) {
+            return getRes(startNum + number - 1, nth);
         } else {
-            return getRes(startNum + num1, num2);
+            return getRes(startNum + number, remainder);
         }
     }
 
@@ -67,5 +67,6 @@ public class FindNthDigit {
     public static void main(String... args) {
         FindNthDigit findNthDigit = new FindNthDigit();
         System.out.println(findNthDigit.findNthDigit(2147483647));
+        System.out.println(findNthDigit.findNthDigit(1000000000));
     }
 }
