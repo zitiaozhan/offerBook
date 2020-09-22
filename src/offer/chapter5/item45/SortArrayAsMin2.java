@@ -10,19 +10,26 @@ import java.util.Arrays;
 /**
  * P45
  * 把数组排成最小的数
+ * 剑指 Offer 45. 把数组排成最小的数
+ * 输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
  *
  * @author xingye
  * @created 2020/9/20
  */
 public class SortArrayAsMin2 {
 
-    private void sort(int[] nums) {
+    private String sort(int[] nums) {
         if (null == nums || 0 == nums.length) {
-            return;
+            return null;
         }
 
         // 归并排序
         mergeSort(nums, 0, nums.length - 1);
+        StringBuilder builder = new StringBuilder();
+        for (int num : nums) {
+            builder.append(num);
+        }
+        return builder.toString();
     }
 
     private void mergeSort(int[] nums, int start, int end) {
@@ -55,9 +62,9 @@ public class SortArrayAsMin2 {
     }
 
     private boolean less(int num1, int num2) {
-        int positive = Integer.parseInt(num1 + "" + num2);
-        int negative = Integer.parseInt(num2 + "" + num1);
-        return positive <= negative;
+        String left = num1 + "" + num2;
+        String right = num2 + "" + num1;
+        return left.compareTo(right) < 0;
     }
 
     public static void main(String... args) {

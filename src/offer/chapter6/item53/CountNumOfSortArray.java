@@ -8,6 +8,9 @@ package offer.chapter6.item53;
 /**
  * 数字在排序数组中出现的次数
  * P263
+ * 剑指 Offer 53 - I. 在排序数组中查找数字 I
+ * 统计一个数字在排序数组中出现的次数。
+ * https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
  *
  * @author xingye
  * @created 2020/8/31

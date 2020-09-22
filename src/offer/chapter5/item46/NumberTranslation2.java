@@ -36,7 +36,7 @@ public class NumberTranslation2 {
                 int cur = chars[i] - '0';
                 int right = chars[i + 1] - '0';
                 int join = cur * 10 + right;
-                if (join < 26) {
+                if (join >= 10 && join < 26) {
                     if (i + 2 < chars.length - 1) {
                         count += counts[i + 2];
                     } else {

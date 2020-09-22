@@ -14,20 +14,20 @@ package offer.chapter5.item52;
  */
 public class ListCommonNode2 {
 
-    private Node listCommonNode(Node node1, Node node2) {
-        if (null == node1 || null == node2) {
+    private ListNode listCommonNode(ListNode listNode1, ListNode listNode2) {
+        if (null == listNode1 || null == listNode2) {
             return null;
         }
 
         // 分别得到长度
         int len1 = 0;
         int len2 = 0;
-        Node cur = node1;
+        ListNode cur = listNode1;
         while (cur != null) {
             cur = cur.next;
             len1++;
         }
-        cur = node2;
+        cur = listNode2;
         while (cur != null) {
             cur = cur.next;
             len2++;
@@ -36,32 +36,32 @@ public class ListCommonNode2 {
         // 长的先走 diff
         if (len1 >= len2) {
             while (len1 > len2) {
-                node1 = node1.next;
-                len1++;
+                listNode1 = listNode1.next;
+                len1--;
             }
         } else {
             while (len1 < len2) {
-                node2 = node2.next;
-                len2++;
+                listNode2 = listNode2.next;
+                len2--;
             }
         }
 
         // 一起走
-        while (node1 != null) {
-            if (node1 == node2) {
-                return node1;
+        while (listNode1 != null && listNode2 != null) {
+            if (listNode1 == listNode2) {
+                return listNode1;
             }
-            node1 = node1.next;
-            node2 = node2.next;
+            listNode1 = listNode1.next;
+            listNode2 = listNode2.next;
         }
         return null;
     }
 
-    private static class Node {
+    private static class ListNode {
         private int val;
-        private Node next;
+        private ListNode next;
 
-        public Node(int val) {
+        public ListNode(int val) {
             this.val = val;
         }
     }
