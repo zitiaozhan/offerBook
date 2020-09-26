@@ -14,7 +14,7 @@ package offer.chapter6.item63;
  */
 public class MaxProfit {
 
-    // TODO:所有股票类型算法题目
+    // DONE:所有股票类型算法题目
     private int onceMaxProfit(int[] nums) {
         if (null == nums || 0 == nums.length) {
             return 0;
