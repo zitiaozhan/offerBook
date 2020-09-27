@@ -59,7 +59,7 @@ public class MedianFinder3 {
     }
 
     // 自实现的堆结构
-    // REDO:重做标签
+    // DONE:重做标签
     public static class Heap {
         private int[] arrays;
         private int offset = 0;
