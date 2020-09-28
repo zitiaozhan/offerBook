@@ -16,7 +16,7 @@ package offer.chapter5.item44;
  */
 public class FindNthDigit2 {
 
-    // REDO:重做标签
+    // DONE:重做标签
     public int findNthDigit(int n) {
         if(n == 0) {
             return 0;
@@ -43,6 +43,7 @@ public class FindNthDigit2 {
 
     public static void main(String... args) {
         FindNthDigit2 findNthDigit2 = new FindNthDigit2();
+        System.out.println(findNthDigit2.findNthDigit(100));
         System.out.println(findNthDigit2.findNthDigit(2147483647));
         System.out.println(findNthDigit2.findNthDigit(1000000000));
     }

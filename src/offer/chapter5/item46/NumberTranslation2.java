@@ -8,7 +8,7 @@ package offer.chapter5.item46;
 /**
  * P46
  * 把数字翻译成字符串
- * REDO:重做标签
+ * DONE:重做标签
  *
  * @author xingye
  * @created 2020/9/20
@@ -52,5 +52,6 @@ public class NumberTranslation2 {
     public static void main(String... args) {
         NumberTranslation2 translation2 = new NumberTranslation2();
         System.out.println(translation2.translation(12258));
+        System.out.println(translation2.translation(31257));
     }
 }
