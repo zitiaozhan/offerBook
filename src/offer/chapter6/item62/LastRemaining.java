@@ -20,7 +20,7 @@ public class LastRemaining {
      * @param n 0~n-1
      * @param m 第m个数
      * @return 最后剩下的数
-     * TODO:解法2：P302
+     * DONE:解法2：P302
      */
     private int lastRemaining(int n, int m) {
         if (n < 1 || m < 1) {
