@@ -73,15 +73,22 @@ public class TreeToDoublyList3 {
         Node node1 = new Node(7);
         Node node2 = new Node(5);
         Node node3 = new Node(3);
-        Node node4 = new Node(9);
-        Node node5 = new Node(11);
+        Node node4 = new Node(6);
+        Node node5 = new Node(9);
+        Node node6 = new Node(8);
+        Node node7 = new Node(12);
 
         node1.left = node2;
         node2.left = node3;
-        node1.right = node4;
-        node4.right = node5;
+        node2.right = node4;
+        node1.right = node5;
+        node5.left = node6;
+        node5.right = node7;
 
         Node head = toDoublyList3.treeToDoublyList(node1);
-        System.out.println(head);
+        for (int i = 0; i < 7; i++) {
+            System.out.println(head.val);
+            head = head.right;
+        }
     }
 }
