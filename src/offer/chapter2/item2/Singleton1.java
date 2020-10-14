@@ -14,7 +14,6 @@ import java.util.stream.IntStream;
  * @created 2020/7/6
  */
 public class Singleton1 {
-    private static final byte[] lock = new byte[0];
     private static Singleton1 instance;
 
     private Singleton1() {
@@ -22,7 +21,7 @@ public class Singleton1 {
 
     public static Singleton1 getInstance() {
         if (null == instance) {
-            synchronized (lock) {
+            synchronized (Singleton1.class) {
                 if (null == instance) {
                     instance = new Singleton1();
                 }

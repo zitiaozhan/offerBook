@@ -35,4 +35,9 @@ public class MinNum {
         return nums[left];
     }
 
+    public static void main(String... args) {
+        MinNum minNum = new MinNum();
+        System.out.println(minNum.minNum(new int[]{2, 3, 4, 5, 1}));
+    }
+
 }
