@@ -83,7 +83,7 @@ public class MedianFinder6 {
             swap(nums, 0, --size);
             nums[size] = 0;
             // 重新调整堆
-            heapfy();
+            heapify();
 
             return result;
         }
@@ -92,7 +92,7 @@ public class MedianFinder6 {
             return nums[0];
         }
 
-        private void heapfy() {
+        private void heapify() {
             int index = 0, left = 2 * index + 1;
             while (index < size && left < size) {
                 int more = left + 1 < size && needSwap(nums[index + 1], nums[left]) ? left + 1 : left;
