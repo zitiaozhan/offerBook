@@ -3,7 +3,7 @@
  * All rights reserved.
  *
  */
-package geek.chapter7.list;
+package geek.chapter7.day1.list;
 
 /**
  * 实现两个有序的链表合并为一个有序链表

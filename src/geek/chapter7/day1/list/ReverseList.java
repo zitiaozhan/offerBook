@@ -3,7 +3,7 @@
  * All rights reserved.
  *
  */
-package geek.chapter7.list;
+package geek.chapter7.day1.list;
 
 /**
  * 实现单链表反转

@@ -3,7 +3,7 @@
  * All rights reserved.
  *
  */
-package geek.chapter7.array;
+package geek.chapter7.day1.array;
 
 import java.util.Arrays;
 
