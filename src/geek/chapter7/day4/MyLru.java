@@ -14,31 +14,31 @@ import java.util.Map;
  * @author xingye
  * @created 2020/11/25
  */
-public class MyLru {
-    private static class Node {
-        private String key;
-        private Integer val;
-        private Node pre;
-        private Node next;
+public class MyLru<K, V> {
+    private static class Node<K, V> {
+        private K key;
+        private V val;
+        private Node<K, V> pre;
+        private Node<K, V> next;
 
-        public Node(String key, Integer val) {
+        public Node(K key, V val) {
             this.key = key;
             this.val = val;
         }
     }
 
-    private Node head;
-    private Node tail;
+    private Node<K, V> head;
+    private Node<K, V> tail;
     private int size;
-    private Map<String, Node> keyAndNodeMap = new HashMap<>();
+    private Map<K, Node<K, V>> keyAndNodeMap = new HashMap<>();
 
     public MyLru(int size) {
         this.size = size;
     }
 
-    public void set(String key, Integer val) {
+    public void set(K key, V val) {
         // 检查是否重复
-        Node hasStore = keyAndNodeMap.get(key);
+        Node<K, V> hasStore = keyAndNodeMap.get(key);
         if (null != hasStore) {
             // 直接覆盖
             hasStore.val = val;
@@ -46,7 +46,7 @@ public class MyLru {
             return;
         }
 
-        Node cur = new Node(key, val);
+        Node<K, V> cur = new Node<K, V>(key, val);
         keyAndNodeMap.put(key, cur);
 
         if (null == head) {
@@ -59,17 +59,17 @@ public class MyLru {
         }
     }
 
-    public Integer get(String key) {
+    public V get(K key) {
         if (!keyAndNodeMap.containsKey(key)) {
             return null;
         }
 
-        Node hasStore = keyAndNodeMap.get(key);
+        Node<K, V> hasStore = keyAndNodeMap.get(key);
         addToHead(hasStore);
         return hasStore.val;
     }
 
-    private void addToHead(Node node) {
+    private void addToHead(Node<K, V> node) {
         if (head == node) {
             return;
         }
@@ -77,8 +77,8 @@ public class MyLru {
             head = node;
             return;
         }
-        Node pre = node.pre;
-        Node next = node.next;
+        Node<K, V> pre = node.pre;
+        Node<K, V> next = node.next;
         if (null != pre) {
             pre.next = next;
         }
@@ -100,14 +100,14 @@ public class MyLru {
             return;
         }
 
-        Node pre = tail.pre;
+        Node<K, V> pre = tail.pre;
         pre.next = null;
         tail.pre = null;
         tail = pre;
     }
 
     private void print() {
-        Node cur = head;
+        Node<K, V> cur = head;
         while (cur != null) {
             System.out.print(cur.key + " = " + cur.val + ", ");
             cur = cur.next;
@@ -115,7 +115,7 @@ public class MyLru {
     }
 
     public static void main(String... args) {
-        MyLru myLru = new MyLru(5);
+        MyLru<String, Integer> myLru = new MyLru<>(5);
         myLru.set("1", 1);
         System.out.println(myLru.get("1"));
         myLru.set("NULL", null);
