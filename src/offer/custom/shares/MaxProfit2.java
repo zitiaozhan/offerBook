@@ -41,5 +41,6 @@ public class MaxProfit2 {
         MaxProfit2 maxProfit2 = new MaxProfit2();
         System.out.println(maxProfit2.maxProfit(new int[]{7, 1, 5, 3, 6, 4}));
         System.out.println(maxProfit2.maxProfit(new int[]{1, 2, 3, 4, 5}));
+        System.out.println(maxProfit2.maxProfit(new int[]{9, 11, 8, 5, 7, 12, 16, 14}));
     }
 }

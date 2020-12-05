@@ -59,7 +59,7 @@ public class MaxProfit3 {
 
     // 题解：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/
     public int maxProfit2(int[] prices) {
-        // dp后面含义：i表示第几天，第二位表示可购买次数，第三位表示0（当前未持有股票）1(当前持有股票)
+        // dp后面含义：i表示第几天，第二位表示购买次数，第三位表示0（当前未持有股票）1(当前持有股票)
         int dp_i10 = 0, dp_i20 = 0;
         int dp_i11 = Integer.MIN_VALUE, dp_i21 = Integer.MIN_VALUE;
 

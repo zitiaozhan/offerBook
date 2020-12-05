@@ -15,6 +15,7 @@ package offer.chapter6.item68;
 public class MinCommonParents {
 
     private Node minCommonParent(Node root, Node node1, Node node2) {
+        commonParent = null;
         if (null == root || null == node1 || null == node2) {
             return null;
         }

@@ -13,6 +13,7 @@ package offer.chapter6.item63;
  */
 public class MaxProfit2 {
 
+    // ERROR
     public int maxProfit(int[] nums) {
         int maxProfit = 0;
         if (null == nums || nums.length < 2) {

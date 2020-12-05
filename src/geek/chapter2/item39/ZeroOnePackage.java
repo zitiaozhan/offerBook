@@ -34,9 +34,34 @@ public class ZeroOnePackage {
         }
     }
 
+    private int zeroOne(int room, int[] items) {
+        boolean[] pack = new boolean[room + 1];
+        pack[0] = true;
+
+        if (items[0] <= room) {
+            pack[items[0]] = true;
+        }
+        for (int i = 1; i < items.length; i++) {
+            for (int j = room - items[i]; j >= 0; j--) {
+                if (pack[j]) {
+                    pack[j + items[i]] = true;
+                }
+            }
+        }
+
+        for (int i = pack.length - 1; i > 0; i--) {
+            if (pack[i]) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public static void main(String... args) {
         ZeroOnePackage zeroOnePackage = new ZeroOnePackage();
         zeroOnePackage.zeroAndOne(0, 29, 0, new int[]{7, 3, 5, 9, 10, 23, 6, 8});
         System.out.println(zeroOnePackage.max);
+
+        System.out.println(zeroOnePackage.zeroOne(29, new int[]{7, 3, 5, 9, 10, 23, 6, 8}));
     }
 }
