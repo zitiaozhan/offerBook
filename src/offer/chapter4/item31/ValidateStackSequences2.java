@@ -20,6 +20,7 @@ import java.util.Stack;
  */
 public class ValidateStackSequences2 {
 
+    // REDO:
     public boolean validateStackSequences(int[] pushed, int[] popped) {
         if ((null == pushed && null != popped) || (null != pushed && null == popped)) {
             return false;

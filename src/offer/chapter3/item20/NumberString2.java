@@ -30,7 +30,7 @@ public class NumberString2 {
         if (pos < target.length() && target.charAt(pos) == '.') {
             // 有小数点的情况
             pos++;
-            res = res | scanUnSignNumber(target);
+            res = res || scanUnSignNumber(target);
         }
         if (pos < target.length() && (target.charAt(pos) == 'e' || target.charAt(pos) == 'E')) {
             // 有E部分
