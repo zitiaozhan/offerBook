@@ -7,6 +7,7 @@ package offer.chapter4.item32;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -19,9 +20,9 @@ import java.util.Queue;
  */
 public class PrintTreeFromTopToBottom2 {
 
-    private List<Integer> print(TreeNode root) {
+    private int[] print(TreeNode root) {
         if (null == root) {
-            return null;
+            return new int[0];
         }
         Queue<TreeNode> queue = new ArrayDeque<>();
         queue.add(root);
@@ -38,7 +39,8 @@ public class PrintTreeFromTopToBottom2 {
                 queue.offer(node.right);
             }
         }
-        return res;
+
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
 
     private static class TreeNode {
@@ -49,6 +51,38 @@ public class PrintTreeFromTopToBottom2 {
         public TreeNode(int val) {
             this.val = val;
         }
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (null == root) {
+            return res;
+        }
+
+        TreeNode curLine = root, nextLine = root;
+        Queue<TreeNode> nodes = new LinkedList<>();
+        nodes.add(root);
+        List<Integer> lineVals = new ArrayList<>();
+        while (!nodes.isEmpty()) {
+            TreeNode poll = nodes.poll();
+            lineVals.add(poll.val);
+
+            if (null != poll.left) {
+                nodes.add(poll.left);
+                nextLine = poll.left;
+            }
+            if (null != poll.right) {
+                nodes.add(poll.right);
+                nextLine = poll.right;
+            }
+
+            if (curLine == poll) {
+                curLine = nextLine;
+                res.add(lineVals);
+                lineVals = new ArrayList<>();
+            }
+        }
+        return res;
     }
 
     public static void main(String... args) {
