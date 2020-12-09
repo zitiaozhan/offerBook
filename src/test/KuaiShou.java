@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
  * @author xingye
  * @created 2020/12/4
  */
-public class Test {
+public class KuaiShou {
 
     private void test(){
         CountDownLatch latch=new CountDownLatch(2);
