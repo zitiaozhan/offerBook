@@ -68,6 +68,5 @@ public class MinCommonParents {
         node3.left = node5;
 
         System.out.println(parents.minCommonParent(node1, node5, node4).val);
-        System.out.println(parents.minCommonParent(node1, node5, node2).val);
     }
 }
